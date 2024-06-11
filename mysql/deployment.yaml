@@ -28,6 +28,7 @@ spec:
               key: password
         ports:
         - containerPort: 3306
+          name: mysql
       volumes:
         - name: volume1
           persistentVolumeClaim:

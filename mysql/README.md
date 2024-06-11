@@ -22,7 +22,7 @@ $ kubectl delete -f ./pv.yaml
 
 $ kubectl delete -f ./secret.yaml
 
-$ kubectl delete -f ./mysql-deployment.yaml
+$ kubectl delete -f ./deployment.yaml
 
 $ kubectl delete -f ./service.yaml
  ```

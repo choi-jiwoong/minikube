@@ -8,7 +8,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
+      storage: 10Gi
 --- 
 apiVersion: v1
 kind: PersistentVolume
@@ -16,14 +16,12 @@ metadata:
   name: pv1
 spec:
   capacity:
-    storage: 2Gi
+    storage: 10Gi
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: standard
-  local:
-    path: /Volumes/Temp/mysql/data/kube
   nodeAffinity:
     required:
       nodeSelectorTerms:
