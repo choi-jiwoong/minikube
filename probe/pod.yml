@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-exec
+spec:
+  containers:
+  - name: liveness
+    image: busybox
+    args:
+    - /bin/sh
+    - -c
+    - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+    livenessProbe: # pod가 살아있는지 점검해준다.
+      exec:
+        command: # cat /tmp/healthy 명령어가 수행되면 0 아니면 다른 값을 반환한다.
+        - cat 
+        - /tmp/healthy
+      initialDelaySeconds: 5 # Pod 실행되고나서 5초 뒤부터 liveness를 확인한다.
+      periodSeconds: 5 # 5초 마다 점검하겠다

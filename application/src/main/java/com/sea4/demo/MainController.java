@@ -25,6 +25,11 @@ public class MainController {
 		return "login";
 	}
 
+	@GetMapping("/health")
+	public String health() {
+		return "health";
+	}
+
 	@PostMapping("/register")
 	public String register() {
 		demoRepository.save(Demo.builder().name("sea4").text("text").build());

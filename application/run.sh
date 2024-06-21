@@ -1,1 +1,0 @@
-docker build -t sea4choi/demo:latest .

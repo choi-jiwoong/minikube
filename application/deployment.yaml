@@ -25,4 +25,13 @@ spec:
             memory: "512Mi"
             cpu: "1024m"
         ports:
-        - containerPort: 8080
+        - containerPort: 8000
+        livenessProbe:
+          httpGet: # http의 GET 요청으로 사용
+            path: /health # GET으로 사용할 path
+            port: 8000 # Port 정보
+            httpHeaders:
+            - name: Custom-Header
+              value: Awesome
+          initialDelaySeconds: 3
+          periodSeconds: 3
