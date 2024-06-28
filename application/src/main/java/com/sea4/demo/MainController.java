@@ -2,6 +2,7 @@ package com.sea4.demo;
 
 import com.sea4.demo.entity.Demo;
 import com.sea4.demo.infrastructure.DemoRepository;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +27,12 @@ public class MainController {
 	}
 
 	@GetMapping("/health")
-	public String health() {
+	public String health(HttpServletResponse response) {
+		response.addHeader("Custom-Header", "Awesome");
 		return "health";
 	}
+
+
 
 	@PostMapping("/register")
 	public String register() {

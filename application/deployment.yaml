@@ -20,10 +20,10 @@ spec:
         resources:
           requests:
             memory: "512Mi"
-            cpu: "1024m"
+            cpu: "256m"
           limits:
             memory: "512Mi"
-            cpu: "1024m"
+            cpu: "256m"
         ports:
         - containerPort: 8000
         livenessProbe:
@@ -34,4 +34,4 @@ spec:
             - name: Custom-Header
               value: Awesome
           initialDelaySeconds: 3
-          periodSeconds: 3
+          periodSeconds: 30
